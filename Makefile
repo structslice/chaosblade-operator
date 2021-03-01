@@ -33,8 +33,8 @@ GO_FLAGS=-ldflags $(GO_X_FLAGS)
 
 # cache downloaded file
 CACHE_PATH=build/cache
-DOWNLOAD_URL=https://github.com/structslice/chaosblade/releases/download/autohome/chaosblade-${BLADE_VERSION}.tar.gz
-CHAOSBLADE_FILE=chaosblade-${BLADE_VERSION}-linux-amd64.tar.gz
+DOWNLOAD_URL=https://github.com/structslice/chaosblade/releases/download/autohome
+CHAOSBLADE_FILE=chaosblade-${BLADE_VERSION}.tar.gz
 CHAOSBLADE_UNZIP_DIR=$(CACHE_PATH)/chaosblade-${BLADE_VERSION}
 CHAOSBLADE_PATH=$(CACHE_PATH)/chaosblade
 
