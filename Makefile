@@ -48,8 +48,8 @@ build_all: build build_image
 
 build_image:
 	#operator-sdk build --go-build-args="$(GO_FLAGS)" chaosblade-operator:${BLADE_VERSION}
-	$(GO) build $(GO_FLAGS) -o build/bin/chaosblade-operator cmd/manager/main.go
-    docker build -f build/Dockerfile -t $(DockerImagePrefix):$(BLADE_VERSION)
+	$(GO) build $(GO_FLAGS) -o $(CACHE_PATH)/chaosblade-operator cmd/manager/main.go
+	cd build && docker build -f Dockerfile -t $(DockerImagePrefix):$(BLADE_VERSION) . && cd ..
 
 
 # only build_fuse and yaml

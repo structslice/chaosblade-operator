@@ -10,6 +10,7 @@ ENV OPERATOR=/usr/local/bin/chaosblade-operator \
 
 COPY --from=builder ${OPERATOR} /usr/local/bin/
 COPY build/cache/chaosblade ${CHAOSBLADE_HOME}
+COPY build/cache/chaosblade-operator /usr/local/bin
 COPY build/bin /usr/local/bin
 RUN chmod a+x /usr/local/bin/*
 RUN /usr/local/bin/user_setup
