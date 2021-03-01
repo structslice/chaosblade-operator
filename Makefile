@@ -15,6 +15,8 @@ ifeq ($(BLADE_VENDOR), )
 	BLADE_VENDOR=community
 endif
 
+DockerImagePrefix=thub.autohome.com.cn/ops-cache/chaosblade-operator
+
 BUILD_TARGET=target
 BUILD_TARGET_DIR_NAME=chaosblade-$(BLADE_VERSION)
 BUILD_TARGET_PKG_DIR=$(BUILD_TARGET)/chaosblade-$(BLADE_VERSION)
@@ -45,7 +47,10 @@ build: pre_build build_yaml build_fuse
 build_all: build build_image
 
 build_image:
-	operator-sdk build --go-build-args="$(GO_FLAGS)" chaosblade-operator:${BLADE_VERSION}
+	#operator-sdk build --go-build-args="$(GO_FLAGS)" chaosblade-operator:${BLADE_VERSION}
+	$(GO) build $(GO_FLAGS) -o $(CACHE_PATH)/chaosblade-operator cmd/manager/main.go
+	cd build && docker build -f Dockerfile -t $(DockerImagePrefix):$(BLADE_VERSION) . && cd ..
+
 
 # only build_fuse and yaml
 build_linux:

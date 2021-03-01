@@ -1,7 +1,7 @@
 FROM alpine:3.8 as builder
 
 ENV OPERATOR=/usr/local/bin/chaosblade-operator
-COPY build/_output/bin/chaosblade-operator /usr/local/bin/
+#COPY build/_output/bin/chaosblade-operator /usr/local/bin/
 
 FROM registry.access.redhat.com/ubi7/ubi-minimal:latest
 
@@ -10,8 +10,9 @@ ENV OPERATOR=/usr/local/bin/chaosblade-operator \
 
 COPY --from=builder ${OPERATOR} /usr/local/bin/
 COPY build/cache/chaosblade ${CHAOSBLADE_HOME}
+COPY build/cache/chaosblade-operator /usr/local/bin
 COPY build/bin /usr/local/bin
-
+RUN chmod a+x /usr/local/bin/*
 RUN /usr/local/bin/user_setup
 
 ENTRYPOINT ["/usr/local/bin/entrypoint"]
