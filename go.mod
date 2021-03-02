@@ -5,6 +5,7 @@ require (
 	github.com/chaosblade-io/chaosblade-exec-os v0.9.0
 	github.com/chaosblade-io/chaosblade-spec-go v0.9.0
 	github.com/ethercflow/hookfs v0.3.0
+	github.com/go-ole/go-ole v1.2.5 // indirect
 	github.com/go-openapi/spec v0.19.4
 	github.com/hanwen/go-fuse v1.0.0
 	github.com/operator-framework/operator-sdk v0.17.0
@@ -19,6 +20,7 @@ require (
 
 replace (
 	github.com/Azure/go-autorest => github.com/Azure/go-autorest v13.3.2+incompatible // Required by OLM
+	github.com/chaosblade-io/chaosblade-exec-os v0.9.0 => github.com/structslice/chaosblade-exec-os v0.9.1
 	k8s.io/client-go => k8s.io/client-go v0.17.4 // Required by prometheus-operator
 )
 

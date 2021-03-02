@@ -9,9 +9,9 @@ ENV OPERATOR=/usr/local/bin/chaosblade-operator \
     CHAOSBLADE_HOME=/opt/chaosblade
 
 #COPY --from=builder ${OPERATOR} /usr/local/bin/
-COPY build/cache/chaosblade ${CHAOSBLADE_HOME}
-COPY build/cache/chaosblade-operator ${OPERATOR}
-COPY build/bin /usr/local/bin
+COPY cache/chaosblade ${CHAOSBLADE_HOME}
+COPY cache/chaosblade-operator ${OPERATOR}
+COPY bin /usr/local/bin
 RUN chmod a+x /usr/local/bin/*
 RUN /usr/local/bin/user_setup
 
