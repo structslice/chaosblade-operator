@@ -23,9 +23,10 @@ spec:
             - --chaosblade-version=0.9.0
             - --chaosblade-image-repository=thub.autohome.com.cn/ops-cache/chaosblade-tool
             - --chaosblade-image-pull-policy=Always
-            - --chaosblade-namespace=auto-chaosblade
             - --webhook-enable
-          imagePullPolicy: IfNotPresent
+            - --daemonset-enable
+            - --remove-blade-interval=72h
+          imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE
               value: ""
