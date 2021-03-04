@@ -14,7 +14,7 @@ spec:
       serviceAccountName: chaosblade
       containers:
         - name: webhook-job-certs
-          image: bitnami/kubectl:latest
+          image: thub.autohome.com/ops-cache/kubectl:latest
           imagePullPolicy: IfNotPresent
           command:
             - "sh"
