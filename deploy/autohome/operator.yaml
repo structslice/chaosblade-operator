@@ -21,8 +21,8 @@ spec:
           command: ["chaosblade-operator"]
           args:
             - --chaosblade-version=0.9.0
-            - --chaosblade-image-repository=chaosbladeio/chaosblade-tool
-            - --chaosblade-image-pull-policy=IfNotPresent
+            - --chaosblade-image-repository=thub.autohome.com.cn/ops-cache/chaosblade-tool
+            - --chaosblade-image-pull-policy=Always
             - --chaosblade-namespace=auto-chaosblade
             - --webhook-enable
           imagePullPolicy: IfNotPresent
