@@ -19,6 +19,7 @@ package chaosblade
 import (
 	"context"
 	"fmt"
+	"k8s.io/apimachinery/pkg/api/resource"
 
 	"github.com/operator-framework/operator-sdk/pkg/k8sutil"
 	"github.com/sirupsen/logrus"
@@ -143,6 +144,9 @@ func createPodSpec() corev1.PodSpec {
 				VolumeSource: corev1.VolumeSource{HostPath: &corev1.HostPathVolumeSource{Path: "/etc/hosts"}},
 			},
 		},
+		NodeSelector: map[string]string{
+			"kubernetes.io/role=Worker": "",
+		},
 	}
 }
 
@@ -174,5 +178,15 @@ func createContainer() corev1.Container {
 			{Name: "hosts", MountPath: "/etc/hosts"},
 		},
 		SecurityContext: &corev1.SecurityContext{Privileged: &trueVar},
+		Resources: corev1.ResourceRequirements{
+			Limits: corev1.ResourceList{
+				corev1.ResourceCPU:    resource.MustParse("1m"),
+				corev1.ResourceMemory: resource.MustParse("1Mi"),
+			},
+			Requests: corev1.ResourceList{
+				corev1.ResourceCPU:    resource.MustParse("0m"),
+				corev1.ResourceMemory: resource.MustParse("0.1Mi"),
+			},
+		},
 	}
 }
