@@ -180,12 +180,12 @@ func createContainer() corev1.Container {
 		SecurityContext: &corev1.SecurityContext{Privileged: &trueVar},
 		Resources: corev1.ResourceRequirements{
 			Limits: corev1.ResourceList{
-				corev1.ResourceCPU:    resource.MustParse("1m"),
-				corev1.ResourceMemory: resource.MustParse("1Mi"),
+				corev1.ResourceCPU:    resource.MustParse("10m"),
+				corev1.ResourceMemory: resource.MustParse("10Mi"),
 			},
 			Requests: corev1.ResourceList{
-				corev1.ResourceCPU:    resource.MustParse("0m"),
-				corev1.ResourceMemory: resource.MustParse("0Mi"),
+				corev1.ResourceCPU:    resource.MustParse("1m"),
+				corev1.ResourceMemory: resource.MustParse("1Mi"),
 			},
 		},
 	}
