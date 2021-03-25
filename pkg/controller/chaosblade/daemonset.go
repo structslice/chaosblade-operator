@@ -185,7 +185,7 @@ func createContainer() corev1.Container {
 			},
 			Requests: corev1.ResourceList{
 				corev1.ResourceCPU:    resource.MustParse("0m"),
-				corev1.ResourceMemory: resource.MustParse("0.1Mi"),
+				corev1.ResourceMemory: resource.MustParse("0Mi"),
 			},
 		},
 	}
