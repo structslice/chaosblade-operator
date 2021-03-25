@@ -145,7 +145,7 @@ func createPodSpec() corev1.PodSpec {
 			},
 		},
 		NodeSelector: map[string]string{
-			"kubernetes.io/role=Worker": "",
+			"kubernetes.io/role": "Worker",
 		},
 	}
 }
